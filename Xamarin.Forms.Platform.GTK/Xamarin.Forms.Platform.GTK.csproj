@@ -91,6 +91,9 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="OpenTK" Version="3.0.1" />
+    <PackageReference Include="SkiaSharp.Views.Forms">
+      <Version>1.68.1</Version>
+    </PackageReference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Animations\BaseAnimation.cs" />
@@ -212,12 +215,6 @@
     <Compile Include="GtkFormsContainer.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Xamarin.Forms.Core\Xamarin.Forms.Core.csproj">
-      <Project>{57b8b73d-c3b5-4c42-869e-7b2f17d354ac}</Project>
-      <Name>Xamarin.Forms.Core</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="app.config" />
     <Content Include="Libs\GMaps\GMap.NET.Core.dll" />
     <Content Include="Libs\GMaps\GMap.NET.GTK.dll" />
@@ -248,6 +245,12 @@
     <Content Include="Resources\hamburger.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Xamarin.Forms.Core\Xamarin.Forms.Core.csproj">
+      <Project>{57B8B73D-C3B5-4C42-869E-7B2F17D354AC}</Project>
+      <Name>Xamarin.Forms.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

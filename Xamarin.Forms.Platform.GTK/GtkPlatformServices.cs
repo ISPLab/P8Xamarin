@@ -52,21 +52,21 @@ namespace Xamarin.Forms.Platform.GTK
 				case NamedSize.Default:
 					return 11;
 				case NamedSize.Micro:
-                case NamedSize.Caption:
+              //  case NamedSize.Caption:
                     return 12;
 				case NamedSize.Medium:
 					return 17;
 				case NamedSize.Large:
 					return 22;
                 case NamedSize.Small:
-                case NamedSize.Body:
+               // case NamedSize.Body:
                     return 14;
-                case NamedSize.Header:
+            /*    case NamedSize.Header:
                     return 46;
                 case NamedSize.Subtitle:
                     return 20;
                 case NamedSize.Title:
-                    return 24;
+                    return 24;*/
                 default:
 					throw new ArgumentOutOfRangeException(nameof(size));
 			}
