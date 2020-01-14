@@ -8,7 +8,7 @@ using Xamarin.Forms.Platform.GTK.Extensions;
 
 namespace Xamarin.Forms.Platform.GTK.Renderers
 {
-	public class ImageRenderer : ViewRenderer<Image, Controls.ImageControl>
+	public class P8ImageRenderer : ViewRenderer<Image, Controls.ImageControl>
 	{
 		bool _isDisposed;
 
@@ -33,7 +33,6 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 
 		protected override void OnElementChanged(ElementChangedEventArgs<Image> e)
 		{
-			//if(e.NewElement == P8Uikernel. P8Image)
 			if (Control == null)
 			{
 				var image = new Controls.ImageControl();
@@ -127,13 +126,13 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 		}
 	}
 
-	public interface IImageSourceHandler : IRegisterable
+	public interface P8IImageSourceHandler : IRegisterable
 	{
 		Task<Pixbuf> LoadImageAsync(ImageSource imagesource, CancellationToken cancelationToken =
 			default(CancellationToken), float scale = 1);
 	}
 
-	public sealed class FileImageSourceHandler : IImageSourceHandler
+	public sealed class P8FileImageSourceHandler : IImageSourceHandler
 	{
 		public Task<Pixbuf> LoadImageAsync(
 			ImageSource imagesource, 
@@ -161,7 +160,7 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 		}
 	}
 
-	public sealed class StreamImagesourceHandler : IImageSourceHandler
+	public sealed class P8StreamImagesourceHandler : IImageSourceHandler
 	{
 		public async Task<Pixbuf> LoadImageAsync(ImageSource imagesource, CancellationToken cancelationToken = default(CancellationToken), float scale = 1)
 		{
@@ -181,7 +180,7 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 		}
 	}
 
-	public sealed class UriImageSourceHandler : IImageSourceHandler
+	public sealed class P8UriImageSourceHandler : IImageSourceHandler
 	{
 		public async Task<Pixbuf> LoadImageAsync(
 			ImageSource imagesource,

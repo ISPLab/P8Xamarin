@@ -312,7 +312,7 @@ namespace Xamarin.Forms
 		public double Height
 		{
 			get { return _mockHeight == -1 ? (double)GetValue(HeightProperty) : _mockHeight; }
-			private set { SetValue(HeightPropertyKey, value); }
+			protected set { SetValue(HeightPropertyKey, value); }
 		}
 
 		public double HeightRequest
@@ -439,7 +439,7 @@ namespace Xamarin.Forms
 		public double Width
 		{
 			get { return _mockWidth == -1 ? (double)GetValue(WidthProperty) : _mockWidth; }
-			private set { SetValue(WidthPropertyKey, value); }
+			protected set { SetValue(WidthPropertyKey, value); }
 		}
 
 		public double WidthRequest

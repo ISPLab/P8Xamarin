@@ -213,6 +213,7 @@
     <Compile Include="VisualElementRenderer.cs" />
     <Compile Include="VisualElementTracker.cs" />
     <Compile Include="GtkFormsContainer.cs" />
+    <Compile Include="Renderers\P8ImageRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -248,7 +249,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Xamarin.Forms.Core\Xamarin.Forms.Core.csproj">
-      <Project>{57B8B73D-C3B5-4C42-869E-7B2F17D354AC}</Project>
+      <Project>{54D38DF6-F669-48B2-88BD-23E033C7387B}</Project>
       <Name>Xamarin.Forms.Core</Name>
     </ProjectReference>
   </ItemGroup>

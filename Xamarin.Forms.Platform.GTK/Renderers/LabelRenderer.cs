@@ -160,7 +160,7 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 			source?.Dispose();
 			source = null;
 			pix = new Gdk.Pixbuf(Gdk.Colorspace.Rgb, true, 8, imgInfo.Width, imgInfo.Height);
-			//Gdk.CairoHelper.SetSourcePixbuf(cr,pix,0,0);
+			Gdk.CairoHelper.SetSourcePixbuf(cr,pix,0,0);
 			cr.Fill();
 
            // cr.SetSource()
