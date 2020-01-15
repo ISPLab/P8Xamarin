@@ -147,6 +147,8 @@ namespace Xamarin.Forms.Platform.GTK
 
 		protected override void OnSizeAllocated(Gdk.Rectangle allocation)
 		{
+
+		
 			base.OnSizeAllocated(allocation);
 
 			double width, height, translationX, translationY;
