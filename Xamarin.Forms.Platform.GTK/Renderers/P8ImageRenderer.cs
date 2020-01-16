@@ -8,7 +8,7 @@ using Xamarin.Forms.Platform.GTK.Extensions;
 
 namespace Xamarin.Forms.Platform.GTK.Renderers
 {
-	public class P8ImageRenderer : ViewRenderer<Image, Controls.ImageControl>
+	/*public class P8ImageRenderer : ViewRenderer<Image, Controls.ImageControl>
 	{
 		bool _isDisposed;
 
@@ -206,5 +206,5 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 
 			return image;
 		}
-	}
+	}*/
 }
