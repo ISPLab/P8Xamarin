@@ -30,7 +30,7 @@ namespace Xamarin.Forms.Platform.GTK
 
 		internal PlatformRenderer PlatformRenderer => _renderer;
 
-		Page Page { get; set; }
+		public static Page Page { get; set; }
 
 		IReadOnlyList<Page> INavigation.ModalStack
 		{
@@ -296,7 +296,10 @@ namespace Xamarin.Forms.Platform.GTK
 
 		internal class DefaultRenderer : VisualElementRenderer<VisualElement, NativeView>
 		{
+			public DefaultRenderer()
+			{
 
+			}
 		}
 
 		#region Obsolete 

@@ -53,7 +53,7 @@ namespace Xamarin.Forms.Platform.GTK
 			get { return _control; }
 			set
 			{
-				if (_control.Equals(value))
+				if (_control !=null && _control.Equals(value))
 					return;
 
 				if (_control != null)

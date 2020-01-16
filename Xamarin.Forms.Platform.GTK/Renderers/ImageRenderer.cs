@@ -11,7 +11,9 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 	public class C_ImageControl : Controls.ImageControl, INativeView
 	{
 		public INativeView Control { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-		AccessibleDesc INativeView.Accessible { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+		public AccessibleDesc C_Accessible { get => new AccessibleDesc(); set => throw new NotImplementedException(); }
+
+		//AccessibleDesc Accessible { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
 		public void Add(GtkFormsContainer container)
 		{

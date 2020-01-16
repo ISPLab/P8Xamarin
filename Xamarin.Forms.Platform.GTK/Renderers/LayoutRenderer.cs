@@ -10,11 +10,12 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 		public INativeView Control { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
 		public ImageAspect Aspect { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
 		public Pixbuf Pixbuf { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
-		AccessibleDesc INativeView.Accessible { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
+		AccessibleDesc INativeView.C_Accessible { get => new AccessibleDesc(); set => throw new System.NotImplementedException(); }
 
 		public void Add(GtkFormsContainer container)
 		{
-			throw new System.NotImplementedException();
+			base.Add(container);
+			
 		}
 
 		public SizeRequest GetDesiredSize(double width, double height)

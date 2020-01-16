@@ -13,7 +13,7 @@ namespace Xamarin.Forms.Platform.GTK.Controls
 		private Fixed _contentContainer;
 		private HBox _toolbar;
 		private GtkFormsContainer _content;
-		private ImageControl _image;
+		private ImageControl GtkImage;
 		private Gdk.Color _defaultBackgroundColor;
 
 		public HBox Toolbar
@@ -63,7 +63,7 @@ namespace Xamarin.Forms.Platform.GTK.Controls
 
 		public async void SetBackgroundImage(ImageSource imageSource)
 		{
-			_image.Pixbuf = await imageSource.GetNativeImageAsync();
+			GtkImage.Pixbuf = await imageSource.GetNativeImageAsync();
 		}
 
 		public override void Destroy()
@@ -75,7 +75,7 @@ namespace Xamarin.Forms.Platform.GTK.Controls
 				_contentContainerWrapper = null;
 			}
 			_contentContainer = null;
-			_image = null;
+			GtkImage = null;
 			_toolbar = null;
 			_content = null;
 			_headerContainer = null;
@@ -93,13 +93,13 @@ namespace Xamarin.Forms.Platform.GTK.Controls
 			_headerContainer = new GtkFormsContainer();
 			root.PackStart(_headerContainer, false, false, 0);
 
-			_image = new ImageControl();
-			_image.Aspect = ImageAspect.Fill;
+			GtkImage = new ImageControl();
+			GtkImage.Aspect = ImageAspect.Fill;
 
 			_contentContainerWrapper = new GtkFormsContainer();
 			_contentContainerWrapper.SizeAllocated += OnContentContainerWrapperSizeAllocated;
 			_contentContainer = new Fixed();
-			_contentContainer.Add(_image);
+			_contentContainer.Add(GtkImage);
 			_contentContainerWrapper.Add(_contentContainer);
 
 			root.PackStart(_contentContainerWrapper, true, true, 0); // Should fill all available space
@@ -127,7 +127,7 @@ namespace Xamarin.Forms.Platform.GTK.Controls
 
 		private void OnContentContainerWrapperSizeAllocated(object o, SizeAllocatedArgs args)
 		{
-			_image.SetSizeRequest(args.Allocation.Width, args.Allocation.Height);
+			GtkImage.SetSizeRequest(args.Allocation.Width, args.Allocation.Height);
 		}
 	}
 }

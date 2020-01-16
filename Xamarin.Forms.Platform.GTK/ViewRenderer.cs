@@ -11,7 +11,7 @@ namespace Xamarin.Forms.Platform.GTK
 	public class AccessibleDesc
 	{
 		public string Name { get; set; }
-		public string Description { get; internal set; }
+		public string Description { get; set; }
 	}
 	public interface INativeView
 	{
@@ -19,7 +19,7 @@ namespace Xamarin.Forms.Platform.GTK
 		bool Sensitive { get; set; }
 		ImageAspect Aspect { get; set; }
 		Pixbuf Pixbuf { get; set; }
-		 AccessibleDesc Accessible { get; set; }
+	    AccessibleDesc C_Accessible { get; set; }
 
 		SizeRequest GetDesiredSize(Double width, Double height);
 		void Add(GtkFormsContainer container);
@@ -51,7 +51,7 @@ namespace Xamarin.Forms.Platform.GTK
 		public INativeView Control { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 		public ImageAspect Aspect { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 		public Pixbuf Pixbuf { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-		AccessibleDesc INativeView.Accessible { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+		AccessibleDesc INativeView.C_Accessible { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
 		public void Add(GtkFormsContainer container)
 		{
@@ -134,7 +134,7 @@ namespace Xamarin.Forms.Platform.GTK
 		public bool Sensitive { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 		public ImageAspect Aspect { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 		public Pixbuf Pixbuf { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-		public AccessibleDesc Accessible { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+		public AccessibleDesc C_Accessible { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
 		public event ButtonPressEventHandler ButtonPressEvent;
 
@@ -276,13 +276,13 @@ namespace Xamarin.Forms.Platform.GTK
 				return;
 
 			if (_defaultAccessibilityHint == null)
-				_defaultAccessibilityHint = Control.Accessible.Name;
+				_defaultAccessibilityHint = Control.C_Accessible.Name;
 
 			var helpText = (string)Element.GetValue(AutomationProperties.HelpTextProperty) ?? _defaultAccessibilityHint;
 
 			if (!string.IsNullOrEmpty(helpText))
 			{
-				Control.Accessible.Name = helpText;
+				Control.C_Accessible.Name = helpText;
 			}
 		}
 
@@ -298,13 +298,13 @@ namespace Xamarin.Forms.Platform.GTK
 				return;
 
 			if (_defaultAccessibilityLabel == null)
-				_defaultAccessibilityLabel = Control.Accessible.Description;
+				_defaultAccessibilityLabel = Control.C_Accessible.Description;
 
 			var name = (string)Element.GetValue(AutomationProperties.NameProperty) ?? _defaultAccessibilityLabel;
 
 			if (!string.IsNullOrEmpty(name))
 			{
-				Control.Accessible.Description = name;
+				Control.C_Accessible.Description = name;
 			}
 		}
 	}
