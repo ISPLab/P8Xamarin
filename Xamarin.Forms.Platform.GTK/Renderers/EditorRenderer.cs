@@ -8,7 +8,7 @@ using Xamarin.Forms.Platform.GTK.Helpers;
 
 namespace Xamarin.Forms.Platform.GTK.Renderers
 {
-	public class EditorRenderer : ViewRenderer<Editor, ScrolledTextView>
+	/*public class EditorRenderer : ViewRenderer<Editor, ScrolledTextView>
 	{
 		private const string TextColorTagName = "text-color";
 
@@ -185,5 +185,5 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 				Control.SetPlaceholderTextColor(placeholderColor);
 			}
 		}
-	}
+	}*/
 }

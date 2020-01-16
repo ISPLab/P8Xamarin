@@ -294,7 +294,7 @@ namespace Xamarin.Forms.Platform.GTK
 			throw new InvalidOperationException("RemovePage is not supported globally on GTK, please use a NavigationPage.");
 		}
 
-		internal class DefaultRenderer : VisualElementRenderer<VisualElement, Widget>
+		internal class DefaultRenderer : VisualElementRenderer<VisualElement, NativeView>
 		{
 
 		}

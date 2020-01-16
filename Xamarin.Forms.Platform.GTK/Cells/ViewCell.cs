@@ -80,7 +80,7 @@ namespace Xamarin.Forms.Platform.GTK.Cells
 					renderer.Element.ClearValue(Platform.RendererProperty);
 
 				var type = Internals.Registrar.Registered.GetHandlerType(viewCell.View.GetType());
-				if (renderer.GetType() == type || (renderer is DefaultRenderer && type == null))
+				if (renderer.GetType() == type || (renderer is DefaultRenderer && type == null)) //setp8Renderer
 					renderer.SetElement(viewCell.View);
 				else
 				{

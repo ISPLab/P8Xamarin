@@ -4,7 +4,7 @@ using Xamarin.Forms.Platform.GTK.Extensions;
 
 namespace Xamarin.Forms.Platform.GTK.Renderers
 {
-	public class TableViewRenderer : ViewRenderer<TableView, Controls.TableView>
+	/*public class TableViewRenderer : ViewRenderer<TableView, Controls.TableView>
 	{
 		private const int DefaultRowHeight = 44;
 
@@ -138,5 +138,5 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 		{
 			SetSource();
 		}
-	}
+	}*/
 }

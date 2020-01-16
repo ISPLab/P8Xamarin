@@ -4,7 +4,7 @@ using Xamarin.Forms.Platform.GTK.Extensions;
 
 namespace Xamarin.Forms.Platform.GTK.Renderers
 {
-	public class DatePickerRenderer : ViewRenderer<DatePicker, Controls.DatePicker>
+	/*public class DatePickerRenderer : ViewRenderer<DatePicker, Controls.DatePicker>
 	{
 		private bool _disposed;
 
@@ -160,5 +160,5 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 
 			return true;
 		}
-	}
+	}*/
 }

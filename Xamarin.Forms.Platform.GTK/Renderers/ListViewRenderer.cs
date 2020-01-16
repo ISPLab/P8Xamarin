@@ -9,7 +9,7 @@ using Xamarin.Forms.Platform.GTK.Extensions;
 
 namespace Xamarin.Forms.Platform.GTK.Renderers
 {
-	public class ListViewRenderer : ViewRenderer<ListView, Controls.ListView>
+	/*public class ListViewRenderer : ViewRenderer<ListView, Controls.ListView>
 	{
 		private bool _disposed;
 		private Controls.ListView _listView;
@@ -626,5 +626,5 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 				Element.NotifyRowTapped(index, cell: null);
 			}
 		}
-	}
+	}*/
 }

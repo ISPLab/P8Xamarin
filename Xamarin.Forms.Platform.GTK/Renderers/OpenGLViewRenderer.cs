@@ -3,7 +3,7 @@ using System.ComponentModel;
 
 namespace Xamarin.Forms.Platform.GTK.Renderers
 {
-	public class OpenGLViewRenderer : ViewRenderer<OpenGLView, Controls.OpenGLView>
+	/*public class OpenGLViewRenderer : ViewRenderer<OpenGLView, Controls.OpenGLView>
 	{
 		private Controls.OpenGLView _openGlView;
 		private bool _disposed;
@@ -79,5 +79,5 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 				_openGlView.OnDisplay = onDisplay;
 			}
 		}
-	}
+	}*/
 }

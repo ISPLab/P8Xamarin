@@ -1,14 +1,238 @@
-﻿using NativeView = Gtk.Widget;
+﻿using System;
+using Cairo;
+using Gdk;
+using GLib;
+using Gtk;
+using Xamarin.Forms.Platform.GTK.Controls;
+//using NativeView = Gtk.Widget;
 
 namespace Xamarin.Forms.Platform.GTK
 {
-	public abstract class ViewRenderer : ViewRenderer<View, NativeView>
+	public class AccessibleDesc
 	{
+		public string Name { get; set; }
+		public string Description { get; internal set; }
+	}
+	public interface INativeView
+	{
+		INativeView Control { get; set; }
+		bool Sensitive { get; set; }
+		ImageAspect Aspect { get; set; }
+		Pixbuf Pixbuf { get; set; }
+		 AccessibleDesc Accessible { get; set; }
 
+		SizeRequest GetDesiredSize(Double width, Double height);
+		void Add(GtkFormsContainer container);
+		void RemoveFromContainer(GtkFormsContainer container);
+		void Dispose();
+
+		event ButtonPressEventHandler ButtonPressEvent;
+		void Destroy();
+		void SetBorderWidth(uint borderWidth);
+		void ResetBorderColor();
+		void SetBorderColor(Gdk.Color?  color);
+		void SetAlpha(double opacity);
+		void UpdateSize(int height, int width);
+		void UpdateBorderRadius(int topLeft, int topRight, int bottomLeft, int bottomRight);
+		void UpdateBorderRadius();
+		void ResetColor();
+		void UpdateColor(Color color);
+		void SetBackgroundColor(Color backgroundColor);
+		void Start();
+		void Stop();
+		void SetSizeRequest(int width, int height);
+	}
+	/*public interface INativeElement
+	{
+		void Destroy();
+	}*/
+	public class NativeView : Gtk.Widget, INativeView
+	{
+		public INativeView Control { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+		public ImageAspect Aspect { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+		public Pixbuf Pixbuf { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+		AccessibleDesc INativeView.Accessible { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
+		public void Add(GtkFormsContainer container)
+		{
+			throw new NotImplementedException();
+		}
+
+		public SizeRequest GetDesiredSize(double width, double height)
+		{
+			throw new NotImplementedException();
+		}
+
+		public void RemoveFromContainer(GtkFormsContainer container)
+		{
+			throw new NotImplementedException();
+		}
+
+		public void ResetBorderColor()
+		{
+			throw new NotImplementedException();
+		}
+
+		public void ResetColor()
+		{
+			throw new NotImplementedException();
+		}
+
+		public void SetAlpha(double opacity)
+		{
+			throw new NotImplementedException();
+		}
+
+		public void SetBackgroundColor(Color backgroundColor)
+		{
+			throw new NotImplementedException();
+		}
+
+		public void SetBorderColor(Gdk.Color? color)
+		{
+			throw new NotImplementedException();
+		}
+
+		public void SetBorderWidth(uint borderWidth)
+		{
+			throw new NotImplementedException();
+		}
+
+		public void Start()
+		{
+			throw new NotImplementedException();
+		}
+
+		public void Stop()
+		{
+			throw new NotImplementedException();
+		}
+
+		public void UpdateBorderRadius(int topLeft, int topRight, int bottomLeft, int bottomRight)
+		{
+			throw new NotImplementedException();
+		}
+
+		public void UpdateBorderRadius()
+		{
+			throw new NotImplementedException();
+		}
+
+		public void UpdateColor(Color color)
+		{
+			throw new NotImplementedException();
+		}
+
+		public void UpdateSize(int height, int width)
+		{
+			throw new NotImplementedException();
+		}
+	}
+	public class P8NativeView : INativeView
+	{
+		public INativeView Control { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+		public bool Sensitive { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+		public ImageAspect Aspect { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+		public Pixbuf Pixbuf { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+		public AccessibleDesc Accessible { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
+		public event ButtonPressEventHandler ButtonPressEvent;
+
+		public void Add(GtkFormsContainer container)
+		{
+			ButtonPressEvent.Invoke(this, new ButtonPressEventArgs());
+			throw new NotImplementedException();
+		}
+
+		public void Destroy()
+		{
+			throw new NotImplementedException();
+		}
+
+		public void Dispose()
+		{
+			throw new NotImplementedException();
+		}
+
+		public SizeRequest GetDesiredSize(double width, double height)
+		{
+			throw new NotImplementedException();
+		}
+
+		public void RemoveFromContainer(GtkFormsContainer container)
+		{
+			throw new NotImplementedException();
+		}
+
+		public void ResetBorderColor()
+		{
+			throw new NotImplementedException();
+		}
+
+		public void ResetColor()
+		{
+			throw new NotImplementedException();
+		}
+
+		public void SetAlpha(double opacity)
+		{
+			throw new NotImplementedException();
+		}
+
+		public void SetBackgroundColor(Color backgroundColor)
+		{
+			throw new NotImplementedException();
+		}
+
+		public void SetBorderColor(Gdk.Color? color)
+		{
+			throw new NotImplementedException();
+		}
+
+		public void SetBorderWidth(uint borderWidth)
+		{
+			throw new NotImplementedException();
+		}
+
+		public void SetSizeRequest(int width, int height)
+		{
+			throw new NotImplementedException();
+		}
+
+		public void Start()
+		{
+			throw new NotImplementedException();
+		}
+
+		public void Stop()
+		{
+			throw new NotImplementedException();
+		}
+
+		public void UpdateBorderRadius(int topLeft, int topRight, int bottomLeft, int bottomRight)
+		{
+			throw new NotImplementedException();
+		}
+
+		public void UpdateBorderRadius()
+		{
+			throw new NotImplementedException();
+		}
+
+		public void UpdateColor(Color color)
+		{
+			throw new NotImplementedException();
+		}
+
+		public void UpdateSize(int height, int width)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
+
 	public abstract class ViewRenderer<TView, TNativeView> : VisualElementRenderer<TView, TNativeView>
-		where TView : View where TNativeView : NativeView
+		where TView : View where TNativeView : INativeView
 	{
 		private string _defaultAccessibilityLabel;
 		private string _defaultAccessibilityHint;
@@ -37,7 +261,7 @@ namespace Xamarin.Forms.Platform.GTK
 		{
 			base.SetNativeControl(view);
 
-			Add(view);
+			Add(view as Widget);
 		}
 
 		protected override void SetAccessibilityHint()

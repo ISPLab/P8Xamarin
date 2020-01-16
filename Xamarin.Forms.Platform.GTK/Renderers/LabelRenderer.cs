@@ -10,7 +10,7 @@ using NativeLabel = Gtk.Label;
 
 namespace Xamarin.Forms.Platform.GTK.Renderers
 {
-	public class LabelRenderer : ViewRenderer<Label, NativeLabel>
+	/*public class LabelRenderer : ViewRenderer<Label, NativeLabel>
 	{
 		private SizeRequest _perfectSize;
 		private bool _perfectSizeValid;
@@ -201,7 +201,7 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 			cr.SetSourceRGBA(_color.R, _color.G, _color.B, _color.A);
 
 			cr.Fill();*/
-		}
+	/*	}
 
 		private void UpdateColor()
 		{
@@ -284,5 +284,5 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 
 			return new SizeRequest(new Size(w, h));
 		}
-	}
+	}*/
 }

@@ -6,7 +6,7 @@ using Xamarin.Forms.Platform.GTK.Extensions;
 
 namespace Xamarin.Forms.Platform.GTK.Renderers
 {
-	public class PickerRenderer : ViewRenderer<Picker, ComboBox>
+	/*public class PickerRenderer : ViewRenderer<Picker, ComboBox>
 	{
 		private bool _disposed;
 
@@ -189,5 +189,5 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 
 			return true;
 		}
-	}
+	}*/
 }

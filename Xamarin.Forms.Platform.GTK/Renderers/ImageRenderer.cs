@@ -8,7 +8,82 @@ using Xamarin.Forms.Platform.GTK.Extensions;
 
 namespace Xamarin.Forms.Platform.GTK.Renderers
 {
-	public class ImageRenderer : ViewRenderer<Image, Controls.ImageControl>
+	public class C_ImageControl : Controls.ImageControl, INativeView
+	{
+		public INativeView Control { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+		AccessibleDesc INativeView.Accessible { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
+		public void Add(GtkFormsContainer container)
+		{
+			throw new NotImplementedException();
+		}
+
+		public SizeRequest GetDesiredSize(double width, double height)
+		{
+			throw new NotImplementedException();
+		}
+
+		public void RemoveFromContainer(GtkFormsContainer container)
+		{
+			throw new NotImplementedException();
+		}
+
+		public void ResetBorderColor()
+		{
+			throw new NotImplementedException();
+		}
+
+		public void ResetColor()
+		{
+			throw new NotImplementedException();
+		}
+
+		public void SetBackgroundColor(Color backgroundColor)
+		{
+			throw new NotImplementedException();
+		}
+
+		public void SetBorderColor(Gdk.Color? color)
+		{
+			throw new NotImplementedException();
+		}
+
+		public void SetBorderWidth(uint borderWidth)
+		{
+			throw new NotImplementedException();
+		}
+
+		public void Start()
+		{
+			throw new NotImplementedException();
+		}
+
+		public void Stop()
+		{
+			throw new NotImplementedException();
+		}
+
+		public void UpdateBorderRadius(int topLeft, int topRight, int bottomLeft, int bottomRight)
+		{
+			throw new NotImplementedException();
+		}
+
+		public void UpdateBorderRadius()
+		{
+			throw new NotImplementedException();
+		}
+
+		public void UpdateColor(Color color)
+		{
+			throw new NotImplementedException();
+		}
+
+		public void UpdateSize(int height, int width)
+		{
+			throw new NotImplementedException();
+		}
+	}
+	public class ImageRenderer : ViewRenderer<Image, C_ImageControl>
 	{
 		bool _isDisposed;
 
@@ -36,7 +111,7 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 			//if(e.NewElement == P8Uikernel. P8Image)
 			if (Control == null)
 			{
-				var image = new Controls.ImageControl();
+				var image = new C_ImageControl();
 				SetNativeControl(image);
 			}
 

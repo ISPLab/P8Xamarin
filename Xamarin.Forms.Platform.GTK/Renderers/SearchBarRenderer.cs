@@ -5,7 +5,7 @@ using Xamarin.Forms.Platform.GTK.Extensions;
 
 namespace Xamarin.Forms.Platform.GTK.Renderers
 {
-	public class SearchBarRenderer : ViewRenderer<SearchBar, SearchEntry>
+/*	public class SearchBarRenderer : ViewRenderer<SearchBar, SearchEntry>
 	{
 		protected override void OnElementChanged(ElementChangedEventArgs<SearchBar> e)
 		{
@@ -138,5 +138,5 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 		{
 			ElementController?.SetValueFromRenderer(VisualElement.IsFocusedPropertyKey, false);
 		}
-	}
+	}*/
 }

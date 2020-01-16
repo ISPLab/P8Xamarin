@@ -4,13 +4,13 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using Xamarin.Forms.Platform.GTK.Extensions;
 using Container = Xamarin.Forms.Platform.GTK.GtkFormsContainer;
-using Control = Gtk.Widget;
+
 
 namespace Xamarin.Forms.Platform.GTK
 {
 	public class VisualElementRenderer<TElement, TNativeElement> : Container, IVisualNativeElementRenderer, IVisualElementRenderer, IDisposable, IEffectControlProvider
 		where TElement : VisualElement
-		where TNativeElement : Control
+		where TNativeElement : INativeView
 	{
 		private bool _disposed;
 		private readonly PropertyChangedEventHandler _propertyChangedHandler;
@@ -48,9 +48,9 @@ namespace Xamarin.Forms.Platform.GTK
 			}
 		}
 
-		public TNativeElement Control { get; set; }
+		public INativeView Control { get; set; }
 
-		Control IVisualNativeElementRenderer.Control => Control;
+		INativeView IVisualNativeElementRenderer.Control => Control;
 
 		public TElement Element { get; set; }
 
@@ -203,7 +203,7 @@ namespace Xamarin.Forms.Platform.GTK
 
 		protected virtual void SetNativeControl(TNativeElement view)
 		{
-			Control = view;
+			Control = view as INativeView; //was Widget
 
 			UpdateBackgroundColor();
 			UpdateIsVisible();
@@ -282,7 +282,7 @@ namespace Xamarin.Forms.Platform.GTK
 
 		internal virtual void OnElementFocusChangeRequested(object sender, VisualElement.FocusRequestArgs args)
 		{
-			var control = Control as Control;
+			var control = Control as Widget;
 
 			if (control == null)
 				return;

@@ -5,7 +5,7 @@ using Xamarin.Forms.Platform.GTK.Extensions;
 
 namespace Xamarin.Forms.Platform.GTK.Renderers
 {
-	public class StepperRenderer : ViewRenderer<Stepper, SpinButton>
+	/*public class StepperRenderer : ViewRenderer<Stepper, SpinButton>
 	{
 		private double _minimum;
 		private double _maximum;
@@ -110,5 +110,5 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 			if (Control.Value != Element.Value)
 				Control.Value = Element.Value;
 		}
-	}
+	}*/
 }

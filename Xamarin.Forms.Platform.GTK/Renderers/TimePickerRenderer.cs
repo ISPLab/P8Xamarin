@@ -4,7 +4,7 @@ using Xamarin.Forms.Platform.GTK.Extensions;
 
 namespace Xamarin.Forms.Platform.GTK.Renderers
 {
-	public class TimePickerRenderer : ViewRenderer<TimePicker, Controls.TimePicker>
+	/*public class TimePickerRenderer : ViewRenderer<TimePicker, Controls.TimePicker>
 	{
 		private bool _disposed;
 
@@ -145,5 +145,5 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 
 			return true;
 		}
-	}
+	}*/
 }

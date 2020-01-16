@@ -7,7 +7,18 @@ using GtkImageButton = Xamarin.Forms.Platform.GTK.Controls.ImageButton;
 
 namespace Xamarin.Forms.Platform.GTK.Renderers
 {
-	public class ButtonRenderer : ViewRenderer<Button, GtkImageButton>
+
+  /*  public class C_GtkImageButton : Xamarin.Forms.Platform.GTK.Controls.ImageButton, INativeView
+	{
+		public INativeView Control { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
+
+		public SizeRequest GetDesiredSize(double width, double height)
+		{
+			throw new System.NotImplementedException();
+		}
+	}
+
+	public class ButtonRenderer : ViewRenderer<Button, C_GtkImageButton>
 	{
 		private const uint DefaultBorderWidth = 1;
 
@@ -33,7 +44,7 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 				{
 					// To allow all available options in Xamarin.Forms, a custom control has been created.
 					// Can set text, text color, border, image, etc.
-					var btn = new GtkImageButton();
+					var btn = new C_GtkImageButton();
 					SetNativeControl(btn);
 
 					Control.Clicked += OnButtonClicked;
@@ -173,5 +184,5 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 				Control.ImageWidget.Visible = image != null;
 			});
 		}
-	}
+	}*/
 }

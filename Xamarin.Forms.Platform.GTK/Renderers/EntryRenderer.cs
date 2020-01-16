@@ -7,7 +7,7 @@ using Xamarin.Forms.Platform.GTK.Helpers;
 
 namespace Xamarin.Forms.Platform.GTK.Renderers
 {
-	public class EntryRenderer : ViewRenderer<Entry, EntryWrapper>
+	/*public class EntryRenderer : ViewRenderer<Entry, EntryWrapper>
 	{
 		private bool _disposed;
 
@@ -160,5 +160,5 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 		{
 			Control.SetMaxLength(Element.MaxLength);
 		}
-	}
+	}*/
 }

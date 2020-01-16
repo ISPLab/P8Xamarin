@@ -3,7 +3,7 @@ using System.ComponentModel;
 
 namespace Xamarin.Forms.Platform.GTK.Renderers
 {
-	public class SwitchRenderer : ViewRenderer<Switch, Gtk.CheckButton>
+	/*public class SwitchRenderer : ViewRenderer<Switch, Gtk.CheckButton>
 	{
 		private bool _disposed;
 
@@ -75,5 +75,5 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 		{
 			ElementController.SetValueFromRenderer(Switch.IsToggledProperty, Control.Active);
 		}
-	}
+	}*/
 }

@@ -3,7 +3,18 @@ using Xamarin.Forms.Platform.GTK.Extensions;
 
 namespace Xamarin.Forms.Platform.GTK.Renderers
 {
-	public class ActivityIndicatorRenderer : ViewRenderer<ActivityIndicator, Controls.ActivityIndicator>
+	/*public class C_ActivityIndicator : Controls.ActivityIndicator, INativeView
+	{
+		public INativeView Control { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
+
+		public SizeRequest GetDesiredSize(double width, double height)
+		{
+			throw new System.NotImplementedException();
+		}
+	}
+
+
+	public class ActivityIndicatorRenderer : ViewRenderer<ActivityIndicator, C_ActivityIndicator>
 	{
 		protected override void OnElementChanged(ElementChangedEventArgs<ActivityIndicator> e)
 		{
@@ -11,11 +22,9 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 			{
 				if (Control == null)
 				{
-					Controls.ActivityIndicator activityIndicator = new Controls.ActivityIndicator();
-
+					C_ActivityIndicator activityIndicator = new C_ActivityIndicator();
 					SetNativeControl(activityIndicator);
 				}
-
 				UpdateColor();
 				UpdateIsRunning();
 			}
@@ -51,5 +60,5 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 			else
 				Control.Stop();
 		}
+	}*/
 	}
-}

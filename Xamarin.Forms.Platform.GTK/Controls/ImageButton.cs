@@ -5,7 +5,7 @@ using Xamarin.Forms.Platform.GTK.Extensions;
 
 namespace Xamarin.Forms.Platform.GTK.Controls
 {
-	public sealed class ImageButton : Gtk.Button
+	public  class ImageButton : Gtk.Button
 	{
 		private Alignment _container;
 		private Box _imageAndLabelContainer;

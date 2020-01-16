@@ -3,7 +3,7 @@ using Xamarin.Forms.Platform.GTK.Extensions;
 
 namespace Xamarin.Forms.Platform.GTK.Renderers
 {
-	public class ProgressBarRenderer : ViewRenderer<ProgressBar, Gtk.ProgressBar>
+/*	public class ProgressBarRenderer : ViewRenderer<ProgressBar, Gtk.ProgressBar>
 	{
 		protected override void OnElementChanged(ElementChangedEventArgs<ProgressBar> e)
 		{
@@ -52,5 +52,5 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 
 			base.UpdateBackgroundColor();
 		}
-	}
+	}*/
 }

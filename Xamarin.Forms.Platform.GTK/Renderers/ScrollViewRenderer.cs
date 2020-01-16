@@ -5,7 +5,7 @@ using Xamarin.Forms.Platform.GTK.Extensions;
 
 namespace Xamarin.Forms.Platform.GTK.Renderers
 {
-	public class ScrollViewRenderer : ViewRenderer<ScrollView, ScrolledWindow>
+	/*public class ScrollViewRenderer : ViewRenderer<ScrollView, ScrolledWindow>
 	{
 		private VisualElement _currentView;
 		private Viewport _viewPort;
@@ -233,5 +233,5 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 					return PolicyType.Automatic;
 			}
 		}
-	}
+	}*/
 }

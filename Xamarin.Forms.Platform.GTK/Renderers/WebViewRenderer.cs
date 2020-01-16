@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Xamarin.Forms.Platform.GTK.Renderers
 {
-	public class WebViewRenderer : ViewRenderer<WebView, Controls.WebView>, IWebViewDelegate, IEffectControlProvider
+	/*public class WebViewRenderer : ViewRenderer<WebView, Controls.WebView>, IWebViewDelegate, IEffectControlProvider
 	{
 		private bool _disposed;
 		private bool _ignoreSourceChanges;
@@ -249,5 +249,5 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 		{
 			Control.Reload();
 		}
-	}
+	}*/
 }

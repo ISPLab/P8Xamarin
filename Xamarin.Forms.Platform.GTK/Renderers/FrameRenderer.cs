@@ -3,7 +3,7 @@ using Xamarin.Forms.Platform.GTK.Extensions;
 
 namespace Xamarin.Forms.Platform.GTK.Renderers
 {
-	public class FrameRenderer : ViewRenderer<Frame, Controls.CustomFrame>
+	/*public class FrameRenderer : ViewRenderer<Frame, Controls.CustomFrame>
 	{
 		protected override void OnElementChanged(ElementChangedEventArgs<Frame> e)
 		{
@@ -63,5 +63,5 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 			Control.Child = wrappingFixed;
 			wrappingFixed.ShowAll();
 		}
-	}
+	}*/
 }

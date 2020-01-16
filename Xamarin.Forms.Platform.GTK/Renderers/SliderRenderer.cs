@@ -3,7 +3,7 @@ using System.ComponentModel;
 
 namespace Xamarin.Forms.Platform.GTK.Renderers
 {
-	public class SliderRenderer : ViewRenderer<Slider, Gtk.HScale>
+/*	public class SliderRenderer : ViewRenderer<Slider, Gtk.HScale>
 	{
 		private double _minimum;
 		private double _maximum;
@@ -86,5 +86,5 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 		{
 			Control.Value = (float)Element.Value;
 		}
-	}
+	}*/
 }

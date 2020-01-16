@@ -4,7 +4,16 @@ using Xamarin.Forms.PlatformConfiguration.GTKSpecific;
 
 namespace Xamarin.Forms.Platform.GTK.Renderers
 {
-	public class BoxViewRenderer : ViewRenderer<BoxView, Controls.BoxView>
+	/*public class C_BoxView : Controls.BoxView, INativeView
+	{
+		public INativeView Control { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
+
+		public SizeRequest GetDesiredSize(double width, double height)
+		{
+			throw new System.NotImplementedException();
+		}
+	}
+	public class BoxViewRenderer : ViewRenderer<BoxView, C_BoxView>
 	{
 		protected override void OnElementChanged(ElementChangedEventArgs<BoxView> e)
 		{
@@ -12,7 +21,7 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 			{
 				if (Control == null)
 				{
-					SetNativeControl(new Controls.BoxView());
+					SetNativeControl(new C_BoxView());
 				}
 
 				SetColor(Element.Color);
@@ -87,5 +96,5 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 
 			Control.UpdateBorderRadius();
 		}
-	}
+	}*/
 }
