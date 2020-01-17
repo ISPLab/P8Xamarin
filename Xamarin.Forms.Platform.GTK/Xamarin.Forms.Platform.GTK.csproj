@@ -128,6 +128,7 @@
     <Compile Include="Controls\NavigationChildPage.cs" />
     <Compile Include="Controls\NotebookWrapper.cs" />
     <Compile Include="Controls\OpenGLView.cs" />
+    <Compile Include="Controls\P8TemplateLayout.cs" />
     <Compile Include="Controls\ScrolledTextView.cs" />
     <Compile Include="Controls\PageContainer.cs" />
     <Compile Include="Controls\SearchEntry.cs" />

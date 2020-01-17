@@ -22,7 +22,7 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 
 		public SizeRequest GetDesiredSize(double width, double height)
 		{
-			throw new NotImplementedException();
+			return new SizeRequest(new Size(300, 300));
 		}
 
 		public void RemoveFromContainer(GtkFormsContainer container)
