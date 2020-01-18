@@ -1,5 +1,7 @@
 ﻿using System;
+using P8Xamarin.Controls;
 using Xamarin.Forms.Platform.GTK.Extensions;
+using Xamarin.Forms.Platform.GTK.Renderers;
 
 namespace Xamarin.Forms.Platform.GTK.Packagers
 {
@@ -65,8 +67,17 @@ namespace Xamarin.Forms.Platform.GTK.Packagers
 			Platform.SetRenderer(view, viewRenderer);
 
 			Gtk.Container container = Renderer.Container;
-			container?.Add(viewRenderer.Container);
-			viewRenderer.Container.ShowAll();
+			if (view is Image || view is P8TemplateLayout)
+			{
+				container?.Add(viewRenderer.Container);
+				viewRenderer.Container.ShowAll();
+			}
+			else
+			if (container is GtkFixed)
+			{
+				(container as GtkFixed).AddP8View(view);
+			}
+
 		}
 
 		protected virtual void OnChildRemoved(VisualElement view)

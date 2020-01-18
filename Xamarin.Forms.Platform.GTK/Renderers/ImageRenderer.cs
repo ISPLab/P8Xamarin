@@ -14,7 +14,11 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 		public AccessibleDesc C_Accessible { get => new AccessibleDesc(); set => throw new NotImplementedException(); }
 
 		//AccessibleDesc Accessible { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-
+		Image control;
+		public  C_ImageControl(Image control)
+		{
+			this.control = control;
+		}
 		public void Add(GtkFormsContainer container)
 		{
 			throw new NotImplementedException();
@@ -22,7 +26,10 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 
 		public SizeRequest GetDesiredSize(double width, double height)
 		{
-			return new SizeRequest(new Size(300, 300));
+			if(control.WidthRequest <= 1 || control.MinimumHeightRequest <= 1)
+				return new SizeRequest(new Size(double.MaxValue, double.MaxValue));
+			else
+			return new SizeRequest(new Size(control.WidthRequest, control.HeightRequest));
 		}
 
 		public void RemoveFromContainer(GtkFormsContainer container)
@@ -113,7 +120,7 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 			//if(e.NewElement == P8Uikernel. P8Image)
 			if (Control == null)
 			{
-				var image = new C_ImageControl();
+				var image = new C_ImageControl(e.NewElement);
 				SetNativeControl(image);
 			}
 

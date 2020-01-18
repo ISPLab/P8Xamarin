@@ -1,4 +1,5 @@
-﻿using Xamarin.Forms.Platform.GTK.Extensions;
+﻿using P8Xamarin.Controls;
+using Xamarin.Forms.Platform.GTK.Extensions;
 using Xamarin.Forms.Platform.GTK.Renderers;
 
 namespace Xamarin.Forms.Platform.GTK.Packagers
@@ -16,8 +17,19 @@ namespace Xamarin.Forms.Platform.GTK.Packagers
 			Platform.SetRenderer(view, viewRenderer);
 
 			var fixedControl = Renderer.Control;
-			fixedControl?.Add(viewRenderer.Container);
+			if (view is Image || view is P8TemplateLayout)
+			{
+				fixedControl?.Add(viewRenderer.Container);
+			}
+			else
+			{
+				(fixedControl as GtkFixed).AddP8View(view);
+			}
 
+		
+			//if(viewRenderer.Container)
+			//if(viewRenderer is P8I)
+			if(viewRenderer is ImageRenderer)
 			viewRenderer.Container.ShowAll();
 		}
 

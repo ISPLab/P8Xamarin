@@ -13,17 +13,28 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 		public Pixbuf Pixbuf { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
 		public AccessibleDesc C_Accessible { get => new AccessibleDesc(); set { } }
 
-
 		public void Add(GtkFormsContainer container)
 		{
-			if(Children.Length == 0)
-		    	base.Add(container);
-			else
-			{
-              //to our control
+			base.Add(container);
+			if (Children.Length < 3)
+			{ //this p8 render 
+				container.WidthRequest = int.MaxValue;
+				//container.HeightRequest = int.MaxValue;
+			
+				
 			}
+			/*else
+			{
+		
+				P8Parent.Add(container);
+			  //to our control
+			}*/
 		}
-
+		public void AddP8View(VisualElement visualelement)
+		{
+			P8Parent.Add(visualelement);
+		}
+	
 		public SizeRequest GetDesiredSize(double width, double height)
 		{
 			throw new System.NotImplementedException();
@@ -93,6 +104,8 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 		{
 			throw new System.NotImplementedException();
 		}
+
+		public CFixed P8Parent { get; internal set; }
 	}
 
 	public class CFixed :/* Gtk.Fixed,*/ INativeView
@@ -104,6 +117,7 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 		{
 			this.layout = layout;
 			_fixed = new GtkFixed();
+			_fixed.P8Parent = this;
 		}
 		public INativeView Control { get; set; }
 		public ImageAspect Aspect { get; set; }
@@ -117,8 +131,9 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 		{
 			ButtonPressEvent?.Invoke(this, new ButtonPressEventArgs());
 		}
-		public void Add(GtkFormsContainer container)
+		public void Add(VisualElement container)
 		{
+			layout.P8Children.Add(container);
 			//P8TemplateLayoutImage.Paint(container)
 			//base.Add(container);
 			//container.
@@ -205,6 +220,11 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 		}
 
 		public void UpdateSize(int height, int width)
+		{
+			throw new System.NotImplementedException();
+		}
+
+		public void Add(GtkFormsContainer container)
 		{
 			throw new System.NotImplementedException();
 		}
