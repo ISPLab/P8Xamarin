@@ -124,6 +124,7 @@ namespace Xamarin.Forms.Platform.GTK
 				throw new NotImplementedException();
 
 			Page = newRoot;
+			
 
 #pragma warning disable CS0618 // Type or member is obsolete
 			// The Platform property is no longer necessary, but we have to set it because some third-party

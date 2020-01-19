@@ -91,7 +91,6 @@ namespace Xamarin.Forms.Platform.GTK
 				var pageRenderer = Platform.GetRenderer(_application.MainPage);
 				pageRenderer?.SetElementSize (new Size (newSize.Width, newSize.Height));
 			}
-
 			return base.OnConfigureEvent (evnt);
 		}
 

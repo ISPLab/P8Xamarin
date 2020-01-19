@@ -13,7 +13,7 @@ namespace Xamarin.Forms.Platform.GTK.Controls
 		private Fixed _contentContainer;
 		private HBox _toolbar;
 		private GtkFormsContainer _content;
-		private ImageControl GtkImage;
+		public  ImageControl GtkImage;
 		private Gdk.Color _defaultBackgroundColor;
 
 		public HBox Toolbar

@@ -15,18 +15,17 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 
 		public void Add(GtkFormsContainer container)
 		{
-			base.Add(container);
+			P8Parent.Add(container);
+			/*base.Add(container);
 			if (Children.Length < 3)
 			{ //this p8 render 
 				container.WidthRequest = int.MaxValue;
 				//container.HeightRequest = int.MaxValue;
-			
-				
 			}
 			/*else
 			{
 		
-				P8Parent.Add(container);
+				
 			  //to our control
 			}*/
 		}
@@ -110,14 +109,15 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 
 	public class CFixed :/* Gtk.Fixed,*/ INativeView
 	{
-		public GtkFixed _fixed { get; set; }
+		//public GtkFixed _fixed { get; set; }
 
-		P8TemplateLayout layout;
+		//P8TemplateLayout layout;
 		public CFixed(P8TemplateLayout layout): base()
 		{
-			this.layout = layout;
-			_fixed = new GtkFixed();
-			_fixed.P8Parent = this;
+			//this.layout = layout;
+		   //	_fixed = new GtkFixed();
+		   //	_fixed.P8Parent = this;
+		  
 		}
 		public INativeView Control { get; set; }
 		public ImageAspect Aspect { get; set; }
@@ -133,7 +133,7 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 		}
 		public void Add(VisualElement container)
 		{
-			layout.P8Children.Add(container);
+			//layout.P8Children.Add(container);
 			//P8TemplateLayoutImage.Paint(container)
 			//base.Add(container);
 			//container.
@@ -226,10 +226,10 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 
 		public void Add(GtkFormsContainer container)
 		{
-			throw new System.NotImplementedException();
+			
 		}
 	}
-	public class LayoutRenderer : ViewRenderer<Layout, GtkFixed>
+	public class LayoutRenderer : ViewRenderer<Layout, CFixed>
 	{
 		private CFixed _p8layout;
 		private LayoutElementPackager _packager;
@@ -253,7 +253,7 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 							_p8layout = new CFixed(e.NewElement as P8TemplateLayout);
 					}
 
-					SetNativeControl(_p8layout._fixed);
+					SetNativeControl(_p8layout);
 				}
 
 				e.NewElement.LayoutChanged += LayoutChanged;
