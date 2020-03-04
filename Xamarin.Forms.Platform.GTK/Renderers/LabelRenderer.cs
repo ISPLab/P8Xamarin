@@ -4,13 +4,207 @@ using SkiaSharp;
 using SkiaSharp.Views.Forms;
 using System;
 using System.ComponentModel;
+using Xamarin.Forms.Platform.GTK.Controls;
 using Xamarin.Forms.Platform.GTK.Extensions;
 using Xamarin.Forms.Platform.GTK.Helpers;
-using NativeLabel = Gtk.Label;
+//using NativeLabel = Gtk.Label;
 
 namespace Xamarin.Forms.Platform.GTK.Renderers
 {
-	/*public class LabelRenderer : ViewRenderer<Label, NativeLabel>
+	public class P8NativeLabel : IGTKNativeView
+	{
+		public IGTKNativeView Control { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+		public bool Sensitive { get ; set ; }
+		public ImageAspect Aspect { get; set; }
+		public Pixbuf Pixbuf { get; set; }
+		AccessibleDesc accessible = new AccessibleDesc();
+		public AccessibleDesc C_Accessible { get { return accessible; } set { accessible = value; } }
+
+		public bool IsFocus { get; set; }
+
+		bool fake_property = false;
+		public event ButtonPressEventHandler ButtonPressEvent;
+		public P8NativeLabel()
+		{
+			if (fake_property){
+				ButtonPressEvent?.Invoke(this, new ButtonPressEventArgs());
+			}
+		}
+
+		private void P8NativeLabel_ButtonPressEvent(object o, ButtonPressEventArgs args)
+		{
+			
+		}
+
+		public void Add(GtkFormsContainer container)
+		{
+			throw new NotImplementedException();
+		}
+
+		public void Destroy()
+		{
+			throw new NotImplementedException();
+		}
+
+		public void Dispose()
+		{
+			throw new NotImplementedException();
+		}
+
+		public SizeRequest GetDesiredSize(double width, double height)
+		{
+			throw new NotImplementedException();
+		}
+
+		public void RemoveFromContainer(GtkFormsContainer container)
+		{
+			throw new NotImplementedException();
+		}
+
+		public void ResetBorderColor()
+		{
+			throw new NotImplementedException();
+		}
+
+		public void ResetColor()
+		{
+			throw new NotImplementedException();
+		}
+
+		public void SetAlpha(double opacity)
+		{
+			throw new NotImplementedException();
+		}
+
+		public void SetBackgroundColor(Color backgroundColor)
+		{
+			throw new NotImplementedException();
+		}
+
+		public void SetBorderColor(Gdk.Color? color)
+		{
+			throw new NotImplementedException();
+		}
+
+		public void SetBorderWidth(uint borderWidth)
+		{
+			throw new NotImplementedException();
+		}
+
+		public void SetSizeRequest(int width, int height)
+		{
+			throw new NotImplementedException();
+		}
+
+		public void Start()
+		{
+			throw new NotImplementedException();
+		}
+
+		public void Stop()
+		{
+			throw new NotImplementedException();
+		}
+
+		public void UpdateBorderRadius(int topLeft, int topRight, int bottomLeft, int bottomRight)
+		{
+			throw new NotImplementedException();
+		}
+
+		public void UpdateBorderRadius()
+		{
+			throw new NotImplementedException();
+		}
+
+		public void UpdateColor(Color color)
+		{
+			throw new NotImplementedException();
+		}
+
+		public void UpdateSize(int height, int width)
+		{
+			throw new NotImplementedException();
+		}
+	}
+	public class LabelRenderer : ViewRenderer<Label, P8NativeLabel>
+	{
+
+
+		protected override void OnElementChanged(ElementChangedEventArgs<Label> e)
+		{
+			if (e.NewElement != null)
+			{
+				if (Control == null)
+				{
+					SetNativeControl(new P8NativeLabel());
+				}
+
+				UpdateText();
+				//UpdateColor();
+				//UpdateLineBreakMode();
+				//UpdateTextAlignment();
+			}
+
+			base.OnElementChanged(e);
+		}
+		protected override void OnSizeAllocated(Gdk.Rectangle allocation)
+		{
+			base.OnSizeAllocated(allocation);
+
+			/*	_allocated = true;
+
+				Control.Layout.Width = Pango.Units.FromPixels((int)Element.Bounds.Width);*/
+		}
+
+		public override SizeRequest GetDesiredSize(double widthConstraint, double heightConstraint)
+		{
+			return new SizeRequest(new Size(100, 89));
+		}
+		protected override void OnElementPropertyChanged(object sender, PropertyChangedEventArgs e)
+		{
+			var pn = e.PropertyName;
+			var s = Control;
+
+		}
+		protected override void SetAccessibilityLabel()
+		{
+		}
+	
+
+		private void UpdateText()
+		{ 
+		}
+
+		protected override void Draw(Gdk.Rectangle area, Cairo.Context cr)
+		{
+		}
+
+		private void UpdateColor()
+		{ 
+		
+		}
+
+		private void UpdateTextAlignment()
+		{
+		}
+
+		private void UpdateLineBreakMode()
+		{ 
+		}
+
+		private float GetAlignmentValue(TextAlignment alignment)
+		{
+			return 100;
+		}
+
+
+		private SizeRequest GetPerfectSize(int widthConstraint = -1)
+		{
+			return new SizeRequest(new Size(100, 89));
+		}
+	}
+
+/*public class LabelRenderer : ViewRenderer<Label, NativeLabel>
 	{
 		private SizeRequest _perfectSize;
 		private bool _perfectSizeValid;

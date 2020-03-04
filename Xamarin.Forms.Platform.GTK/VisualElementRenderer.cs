@@ -10,7 +10,7 @@ namespace Xamarin.Forms.Platform.GTK
 {
 	public class VisualElementRenderer<TElement, TNativeElement> : Container, IVisualNativeElementRenderer, IVisualElementRenderer, IDisposable, IEffectControlProvider
 		where TElement : VisualElement
-		where TNativeElement : INativeView
+		where TNativeElement : IGTKNativeView
 	{
 		private bool _disposed;
 		private readonly PropertyChangedEventHandler _propertyChangedHandler;
@@ -48,9 +48,9 @@ namespace Xamarin.Forms.Platform.GTK
 			}
 		}
 
-		public INativeView Control { get; set; }
+		public IGTKNativeView Control { get; set; }
 
-		INativeView IVisualNativeElementRenderer.Control => Control;
+		IGTKNativeView IVisualNativeElementRenderer.Control => Control;
 
 		public TElement Element { get; set; }
 
@@ -78,7 +78,7 @@ namespace Xamarin.Forms.Platform.GTK
 
 		public event EventHandler<ElementChangedEventArgs<TElement>> ElementChanged;
 
-		void IEffectControlProvider.RegisterEffect(Effect effect)
+		 void IEffectControlProvider.RegisterEffect(Effect effect)
 		{
 			var platformEffect = effect as PlatformEffect;
 			if (platformEffect != null)
@@ -203,7 +203,7 @@ namespace Xamarin.Forms.Platform.GTK
 
 		protected virtual void SetNativeControl(TNativeElement view)
 		{
-			Control = view as INativeView; //was Widget
+			Control = view as IGTKNativeView; //was Widget
 
 			UpdateBackgroundColor();
 			UpdateIsVisible();
@@ -282,7 +282,7 @@ namespace Xamarin.Forms.Platform.GTK
 
 		internal virtual void OnElementFocusChangeRequested(object sender, VisualElement.FocusRequestArgs args)
 		{
-			var control = Control as Widget;
+			var control = Control as IGTKNativeView;
 
 			if (control == null)
 				return;

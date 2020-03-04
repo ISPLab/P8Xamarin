@@ -1,4 +1,5 @@
 ﻿using Gdk;
+using P8Xamarin.Controls;
 using System;
 using System.ComponentModel;
 using System.IO;
@@ -8,9 +9,9 @@ using Xamarin.Forms.Platform.GTK.Extensions;
 
 namespace Xamarin.Forms.Platform.GTK.Renderers
 {
-	public class C_ImageControl : Controls.ImageControl, INativeView
+	public class C_ImageControl : Controls.ImageControl, IGTKNativeView
 	{
-		public INativeView Control { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+		public IGTKNativeView Control { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 		public AccessibleDesc C_Accessible { get => new AccessibleDesc(); set => throw new NotImplementedException(); }
 
 		//AccessibleDesc Accessible { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
@@ -122,6 +123,7 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 			{
 				var image = new C_ImageControl(e.NewElement);
 				SetNativeControl(image);
+				P8TemplateLayout.P8Children.Add(e.NewElement as Image);
 			}
 
 			if (e.NewElement != null)

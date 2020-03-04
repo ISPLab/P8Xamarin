@@ -78,7 +78,7 @@ namespace Xamarin.Forms
 			get { return GetValue(BackgroundImageProperty) as FileImageSource; }
 			set { SetValue(BackgroundImageProperty, value); }
 		}
-
+		public string Tag { get; set; }
 		public ImageSource BackgroundImageSource
 		{
 			get { return (ImageSource)GetValue(BackgroundImageSourceProperty); }

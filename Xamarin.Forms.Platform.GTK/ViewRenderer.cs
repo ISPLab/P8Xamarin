@@ -13,13 +13,17 @@ namespace Xamarin.Forms.Platform.GTK
 		public string Name { get; set; }
 		public string Description { get; set; }
 	}
-	public interface INativeView
+	public interface IGTKNativeView
 	{
-		INativeView Control { get; set; }
+		IGTKNativeView Control { get; set; }
 		bool Sensitive { get; set; }
 		ImageAspect Aspect { get; set; }
 		Pixbuf Pixbuf { get; set; }
-	    AccessibleDesc C_Accessible { get; set; }
+
+	
+		AccessibleDesc C_Accessible { get; set; }
+		bool IsFocus { get; set; }
+	
 
 		SizeRequest GetDesiredSize(Double width, Double height);
 		void Add(GtkFormsContainer container);
@@ -46,12 +50,12 @@ namespace Xamarin.Forms.Platform.GTK
 	{
 		void Destroy();
 	}*/
-	public class NativeView : Gtk.Widget, INativeView
+	public class NativeView : Gtk.Widget, IGTKNativeView
 	{
-		public INativeView Control { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+		public IGTKNativeView Control { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 		public ImageAspect Aspect { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 		public Pixbuf Pixbuf { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-		AccessibleDesc INativeView.C_Accessible { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+		AccessibleDesc IGTKNativeView.C_Accessible { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
 		public void Add(GtkFormsContainer container)
 		{
@@ -128,13 +132,14 @@ namespace Xamarin.Forms.Platform.GTK
 			throw new NotImplementedException();
 		}
 	}
-	public class P8NativeView : INativeView
+	public class P8NativeView : IGTKNativeView
 	{
-		public INativeView Control { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+		public IGTKNativeView Control { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 		public bool Sensitive { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 		public ImageAspect Aspect { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 		public Pixbuf Pixbuf { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 		public AccessibleDesc C_Accessible { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+		public bool IsFocus { get; set; }
 
 		public event ButtonPressEventHandler ButtonPressEvent;
 
@@ -232,7 +237,7 @@ namespace Xamarin.Forms.Platform.GTK
 
 
 	public abstract class ViewRenderer<TView, TNativeView> : VisualElementRenderer<TView, TNativeView>
-		where TView : View where TNativeView : INativeView
+		where TView : View where TNativeView : IGTKNativeView
 	{
 		private string _defaultAccessibilityLabel;
 		private string _defaultAccessibilityHint;
@@ -259,9 +264,10 @@ namespace Xamarin.Forms.Platform.GTK
 
 		protected override void SetNativeControl(TNativeView view)
 		{
+			//P8Xamarin.Controls.P8TemplateLayout.P8Children.Add(view as VisualElement);
 			base.SetNativeControl(view);
-
-			Add(view as Widget);
+			if(view is Widget)
+			  Add(view as Widget);
 		}
 
 		protected override void SetAccessibilityHint()
@@ -298,13 +304,18 @@ namespace Xamarin.Forms.Platform.GTK
 				return;
 
 			if (_defaultAccessibilityLabel == null)
+			{
+				if(Control.C_Accessible!=null)
 				_defaultAccessibilityLabel = Control.C_Accessible.Description;
+				_defaultAccessibilityLabel = "_defaultAccessibilityLabel";
+			}
 
 			var name = (string)Element.GetValue(AutomationProperties.NameProperty) ?? _defaultAccessibilityLabel;
 
 			if (!string.IsNullOrEmpty(name))
 			{
-				Control.C_Accessible.Description = name;
+				if (Control.C_Accessible != null)
+					Control.C_Accessible.Description = name;
 			}
 		}
 	}

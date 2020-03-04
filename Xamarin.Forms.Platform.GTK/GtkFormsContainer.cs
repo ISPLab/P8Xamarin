@@ -44,6 +44,7 @@ namespace Xamarin.Forms.Platform.GTK
 
 		protected override bool OnExposeEvent(EventExpose evnt)
 		{
+			//System.Diagnostics.Debug.Print(evnt.Type.ToString());
 			using (var cr = CairoHelper.Create(GdkWindow))
 			{
 				// Windowless widgets receive expose events with the whole area of

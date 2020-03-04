@@ -224,7 +224,7 @@ namespace Xamarin.Forms
 			var result = new Rectangle();
 
 			SizeRequest sizeRequest;
-			Rectangle bounds = GetLayoutBounds(view);
+			Rectangle bounds =  GetLayoutBounds(view);
 			AbsoluteLayoutFlags absFlags = GetLayoutFlags(view);
 			bool widthIsProportional = (absFlags & AbsoluteLayoutFlags.WidthProportional) != 0;
 			bool heightIsProportional = (absFlags & AbsoluteLayoutFlags.HeightProportional) != 0;

@@ -6,9 +6,9 @@ using Xamarin.Forms.Platform.GTK.Packagers;
 
 namespace Xamarin.Forms.Platform.GTK.Renderers
 {
-	public class GtkFixed : Gtk.Fixed, INativeView
+	public class GtkFixed : Gtk.Fixed, IGTKNativeView
 	{
-		public INativeView Control { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
+		public IGTKNativeView Control { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
 		public ImageAspect Aspect { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
 		public Pixbuf Pixbuf { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
 		public AccessibleDesc C_Accessible { get => new AccessibleDesc(); set { } }
@@ -107,23 +107,24 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 		public CFixed P8Parent { get; internal set; }
 	}
 
-	public class CFixed :/* Gtk.Fixed,*/ INativeView
+	public class CFixed :/* Gtk.Fixed,*/ IGTKNativeView
 	{
 		//public GtkFixed _fixed { get; set; }
 
-		//P8TemplateLayout layout;
+		P8TemplateLayout layout;
 		public CFixed(P8TemplateLayout layout): base()
 		{
-			//this.layout = layout;
+			this.layout = layout;
 		   //	_fixed = new GtkFixed();
 		   //	_fixed.P8Parent = this;
 		  
 		}
-		public INativeView Control { get; set; }
+		public IGTKNativeView Control { get; set; }
 		public ImageAspect Aspect { get; set; }
 		public Pixbuf Pixbuf { get; set; }
 		public bool Sensitive { get; set; }
-		AccessibleDesc INativeView.C_Accessible { get => new AccessibleDesc(); set => throw new System.NotImplementedException(); }
+		AccessibleDesc IGTKNativeView.C_Accessible { get => new AccessibleDesc(); set => throw new System.NotImplementedException(); }
+		public bool IsFocus { get; set; }
 
 		public event ButtonPressEventHandler ButtonPressEvent;
 
@@ -133,10 +134,11 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 		}
 		public void Add(VisualElement container)
 		{
-			//layout.P8Children.Add(container);
-			//P8TemplateLayoutImage.Paint(container)
-			//base.Add(container);
-			//container.
+			P8Xamarin.Controls.P8TemplateLayout.P8Children.Add(container);
+			/*	if(container is Layout)
+				{
+					P8Xamarin.Controls.P8TemplateLayout.P8Children.Add(container);
+				}*/
 		}
 
 		public void Destroy()
@@ -156,7 +158,7 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 
 		public void RemoveFromContainer(GtkFormsContainer container)
 		{
-			throw new System.NotImplementedException();
+			//throw new System.NotImplementedException();
 		}
 
 		public void ResetBorderColor()

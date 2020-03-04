@@ -10,10 +10,10 @@ using Xamarin.Forms.Platform.GTK.Extensions;
 
 namespace Xamarin.Forms.Platform.GTK
 {
-	public class VisualElementTracker<TElement, TNativeElement> : IDisposable where TElement : VisualElement where TNativeElement : INativeView
+	public class VisualElementTracker<TElement, TNativeElement> : IDisposable where TElement : VisualElement where TNativeElement : IGTKNativeView
 	{
 		private bool _isDisposed;
-		private INativeView _control;
+		private IGTKNativeView _control;
 		private TElement _element;
 		private GtkFormsContainer _container;
 		private bool _invalidateArrangeNeeded;
@@ -48,7 +48,7 @@ namespace Xamarin.Forms.Platform.GTK
 			}
 		}
 
-		public INativeView Control
+		public IGTKNativeView Control
 		{
 			get { return _control; }
 			set

@@ -181,11 +181,14 @@ namespace Xamarin.Forms
 
 		public static readonly BindableProperty MinimumHeightRequestProperty = BindableProperty.Create("MinimumHeightRequest", typeof(double), typeof(VisualElement), -1d, propertyChanged: OnRequestChanged);
 
-		[EditorBrowsable(EditorBrowsableState.Never)]
-		public static readonly BindablePropertyKey IsFocusedPropertyKey = BindableProperty.CreateReadOnly("IsFocused",
-			typeof(bool), typeof(VisualElement), default(bool), propertyChanged: OnIsFocusedPropertyChanged);
+	/*	[EditorBrowsable(EditorBrowsableState.Never)]
+		public static  BindablePropertyKey IsFocusedPropertyKey = BindableProperty.CreateReadOnly("IsFocused",
+			typeof(bool), typeof(VisualElement), default(bool), propertyChanged: OnIsFocusedPropertyChanged);*/
 
-		public static readonly BindableProperty IsFocusedProperty = IsFocusedPropertyKey.BindableProperty;
+		//public static  BindableProperty IsFocusedProperty = IsFocusedPropertyKey.BindableProperty;
+
+		public static BindableProperty IsFocusedProperty = BindableProperty.Create("IsFocused",
+			typeof(bool), typeof(VisualElement), default(bool), propertyChanged: OnIsFocusedPropertyChanged);
 
 		public static readonly BindableProperty FlowDirectionProperty = BindableProperty.Create(nameof(FlowDirection), typeof(FlowDirection), typeof(VisualElement), FlowDirection.MatchParent, propertyChanged: FlowDirectionChanged);
 
@@ -336,6 +339,7 @@ namespace Xamarin.Forms
 		public bool IsFocused
 		{
 			get { return (bool)GetValue(IsFocusedProperty); }
+			internal set { SetValue(IsFocusedProperty, value); }
 		}
 
 		[TypeConverter(typeof(VisibilityConverter))]
@@ -618,6 +622,7 @@ namespace Xamarin.Forms
 
 			var arg = new FocusRequestArgs { Focus = true };
 			FocusChangeRequested(this, arg);
+			this.IsFocused = arg.Result;
 			return arg.Result;
 		}
 
@@ -728,6 +733,7 @@ namespace Xamarin.Forms
 			{
 				unfocus(this, new FocusRequestArgs());
 			}
+			this.IsFocused = false;
 		}
 
 		public event EventHandler<FocusEventArgs> Unfocused;
@@ -775,7 +781,6 @@ namespace Xamarin.Forms
 			{
 				return new SizeRequest(new Size(-1, -1));
 			}
-
 			return Device.PlatformServices.GetNativeSize(this, widthConstraint, heightConstraint);
 		}
 

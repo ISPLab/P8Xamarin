@@ -37,7 +37,7 @@ namespace Xamarin.Forms
 		Element _parentOverride;
 
 		string _styleId;
-		
+
 
 		public string AutomationId
 		{
@@ -79,7 +79,12 @@ namespace Xamarin.Forms
 					_id = Guid.NewGuid();
 				return _id.Value;
 			}
+			set
+			{
+				_id = value;
+			}
 		}
+			
 
 		[Obsolete("ParentView is obsolete as of version 2.1.0. Please use Parent instead.")]
 		[EditorBrowsable(EditorBrowsableState.Never)]

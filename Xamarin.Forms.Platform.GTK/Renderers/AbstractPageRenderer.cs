@@ -190,6 +190,7 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 
 		protected virtual void OnElementPropertyChanged(object sender, PropertyChangedEventArgs e)
 		{
+			
 			if (e.PropertyName == VisualElement.BackgroundColorProperty.PropertyName)
 				UpdateBackgroundColor();
 			else if (e.PropertyName == Xamarin.Forms.Page.BackgroundImageSourceProperty.PropertyName)
