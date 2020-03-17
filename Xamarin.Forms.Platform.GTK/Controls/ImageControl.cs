@@ -1366,7 +1366,7 @@ namespace Xamarin.Forms.Platform.GTK.Controls
 
 		private static Pixbuf GetFillPixBuf(Pixbuf original, Gdk.Rectangle allocation)
 		{
-			return original.ScaleSimple(allocation.Width, allocation.Height, InterpType.Bilinear);
+			return original.ScaleSimple(allocation.Width, allocation.Height, InterpType.Bilinear); //todo check!
 		}
 
 		private void UpdatePixBufWithAllocation(Gdk.Rectangle allocation)
