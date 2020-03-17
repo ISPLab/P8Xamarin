@@ -40,7 +40,14 @@ namespace Xamarin.Forms
 			get => _inheritedContext ?? GetValue(BindingContextProperty);
 			set => SetValue(BindingContextProperty, value);
 		}
-
+		protected List<BindableProperty> P8GetProperties() //P8hack
+		{
+			return _properties.Select(c => c.Key).ToList();
+		}
+		protected BindableProperty P8GetProperty(string name)
+		{
+			return _properties.SingleOrDefault(p=> p.Key.PropertyName.Equals(name)).Key;
+		}
 		public event PropertyChangedEventHandler PropertyChanged;
 		public event PropertyChangingEventHandler PropertyChanging;
 		public event EventHandler BindingContextChanged;
@@ -308,9 +315,9 @@ namespace Xamarin.Forms
 			OnSetDynamicResource(property, key);
 		}
 
-		public void SetValue(BindableProperty property, object value) => SetValue(property, value, false, true);
+		public virtual void SetValue(BindableProperty property, object value) => SetValue(property, value, false, true);
 
-		public void SetValue(BindablePropertyKey propertyKey, object value)
+		public  void SetValue(BindablePropertyKey propertyKey, object value)
 		{
 			if (propertyKey == null)
 				throw new ArgumentNullException(nameof(propertyKey));
