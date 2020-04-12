@@ -33,7 +33,7 @@ namespace Xamarin.Forms.Platform.GTK.Packagers
 			GC.SuppressFinalize(this);
 		}
 
-		public void Load()
+		public virtual void Load()
 		{
 			for (var i = 0; i < ElementController.LogicalChildren.Count; i++)
 			{
@@ -77,7 +77,6 @@ namespace Xamarin.Forms.Platform.GTK.Packagers
 			{
 				(container as GtkFixed).AddP8View(view);
 			}
-
 		}
 
 		protected virtual void OnChildRemoved(VisualElement view)

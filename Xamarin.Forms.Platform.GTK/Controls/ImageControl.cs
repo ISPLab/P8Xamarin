@@ -1360,7 +1360,6 @@ namespace Xamarin.Forms.Platform.GTK.Controls
 			var fitRatio = Math.Max(widthRatio, heigthRatio);
 			var finalWidth = (int)(original.Width * fitRatio);
 			var finalHeight = (int)(original.Height * fitRatio);
-
 			return original.ScaleSimple(finalWidth, finalHeight, InterpType.Bilinear);
 		}
 

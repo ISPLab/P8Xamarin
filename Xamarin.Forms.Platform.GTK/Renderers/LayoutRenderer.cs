@@ -134,11 +134,7 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 		}
 		public void Add(VisualElement container)
 		{
-			P8Xamarin.Controls.P8TemplateLayout.P8Children.Add(container);
-			/*	if(container is Layout)
-				{
-					P8Xamarin.Controls.P8TemplateLayout.P8Children.Add(container);
-				}*/
+			P8Xamarin.Controls.P8TemplateLayout.AddView(container);
 		}
 
 		public void Destroy()

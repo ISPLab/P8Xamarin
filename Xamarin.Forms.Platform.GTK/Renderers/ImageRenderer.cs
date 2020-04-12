@@ -123,7 +123,7 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 			{
 				var image = new C_ImageControl(e.NewElement);
 				SetNativeControl(image);
-				P8TemplateLayout.P8Children.Add(e.NewElement as Image);
+				P8TemplateLayout.AddView(e.NewElement as Image);
 			}
 
 			if (e.NewElement != null)

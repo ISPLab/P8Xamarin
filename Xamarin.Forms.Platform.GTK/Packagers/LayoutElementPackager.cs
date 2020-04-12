@@ -18,18 +18,32 @@ namespace Xamarin.Forms.Platform.GTK.Packagers
 		static List<VisualElement> cash_view = new List<VisualElement>();
 		protected override void OnChildAdded(VisualElement view)
 		{
+			//P8Template
 			try
 			{
 				var viewRenderer = Platform.CreateRenderer(view);
 				Platform.SetRenderer(view, viewRenderer);
+				P8TemplateLayout.AddView(view);
+			//	viewRenderer.Container.ShowAll();
+			//	return;
+				//(Renderer.Control as CFixed).Add(view);
+				/*
+				if(Renderer.Control == null)
 				cash_view.Add(view);
-				if (Renderer.Control != null && Renderer.Control is CFixed)
+				if(view is Editor)
 				{
-						cash_view.ForEach(i => (Renderer.Control as CFixed).Add(i));
-						cash_view.Clear();
+
 				}
-			if (viewRenderer is ImageRenderer)
-				viewRenderer.Container.ShowAll();
+				if (Renderer.Control != null && Renderer.Control is CFixed )
+				{
+			    	cash_view.ForEach(i => (Renderer.Control as CFixed).Add(i));
+				    cash_view.Clear();
+					//first_load = false;
+				}
+			    if (viewRenderer is ImageRenderer)
+				{
+		    		viewRenderer.Container.ShowAll();
+				}*/
 			} catch (Exception ex)
 			{
 				System.Diagnostics.Debug.WriteLine(ex.ToString());
@@ -38,18 +52,9 @@ namespace Xamarin.Forms.Platform.GTK.Packagers
 
 		protected override void OnChildRemoved(VisualElement view)
 		{
-			try
-			{
-				var res = P8Xamarin.Controls.P8TemplateLayout.P8Children.ToList().SingleOrDefault(c => c.Id == view.Id);
-				if(res!=null)
-				P8Xamarin.Controls.P8TemplateLayout.P8Children.Remove(res);
-			}
-			catch(Exception ex)
-			{
-				System.Diagnostics.Debug.WriteLine(ex.ToString());
-			}
+			
+			P8Xamarin.Controls.P8TemplateLayout.RemoveView(view.Id);
 			var viewRenderer = Platform.GetRenderer(view);
-
 			var fixedControl = Renderer.Control;
 			if(fixedControl!=null)
 			fixedControl.RemoveFromContainer(viewRenderer.Container);
