@@ -32,10 +32,10 @@
 	  <OutputPath>bin\Debug</OutputPath>
 	  <DefineConstants></DefineConstants>
 	  <AppendTargetFrameworkToOutputPath>false</AppendTargetFrameworkToOutputPath>
-	  <LangVersion>7.2</LangVersion>
+	  <LangVersion>8.0</LangVersion>
 	</PropertyGroup>
 	<PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-	  <LangVersion>7.2</LangVersion>
+	  <LangVersion>8.0</LangVersion>
 	</PropertyGroup>
 	<Import Project="..\Xamarin.Flex\Xamarin.Flex.projitems" Label="Shared" Condition="Exists('..\Xamarin.Flex\Xamarin.Flex.projitems')" />
 	<UsingTask TaskName="XFCorePostProcessor.Tasks.FixXFCoreAssembly" AssemblyFile="..\XFCorePostProcessor.Tasks\bin\Debug\net461\XFCorePostProcessor.Tasks.dll" />
