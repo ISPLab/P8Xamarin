@@ -77,7 +77,7 @@ namespace Xamarin.Forms.Platform.GTK
 
 		public static IVisualElementRenderer GetRenderer(VisualElement element)
 		{
-			return (IVisualElementRenderer)element.GetValue(RendererProperty);
+			return (IVisualElementRenderer)element?.GetValue(RendererProperty);
 		}
 
 		public static void SetRenderer(VisualElement element, IVisualElementRenderer value)

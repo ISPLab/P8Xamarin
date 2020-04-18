@@ -24,7 +24,51 @@ namespace Xamarin.Forms.Platform.GTK.Controls
 
 	public class WebView : EventBox, IWebView
 	{
-		private GTKPlatform _platform;
+		public string Uri { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
+		public event EventHandler LoadStarted;
+		public event EventHandler LoadFinished;
+
+		public bool CanGoBack()
+		{
+			LoadStarted.Invoke(this, new EventArgs());
+			LoadFinished.Invoke(this, new EventArgs());
+
+			throw new NotImplementedException();
+		}
+
+		public bool CanGoForward()
+		{
+			throw new NotImplementedException();
+		}
+
+		public void ExecuteScript(string script)
+		{
+			throw new NotImplementedException();
+		}
+
+		public void GoBack()
+		{
+			throw new NotImplementedException();
+		}
+
+		public void GoForward()
+		{
+			throw new NotImplementedException();
+		}
+
+		public void LoadHTML(string html, string baseUrl)
+		{
+			throw new NotImplementedException();
+		}
+
+		public void Navigate(string uri)
+		{
+			throw new NotImplementedException();
+		}
+	}
+}
+		/*private GTKPlatform _platform;
 		private WebViewWindows _webViewWindows;
 		private WebViewLinux _webViewLinux;
 
@@ -299,7 +343,7 @@ namespace Xamarin.Forms.Platform.GTK.Controls
 	public class WebViewLinux : EventBox
 	{
 		private VBox _vbox = null;
-		private WebKit.WebView _webview = null;
+		/*private WebKit.WebView _webview = null;
 
 		public WebViewLinux()
 		{
@@ -340,5 +384,5 @@ namespace Xamarin.Forms.Platform.GTK.Controls
 			_webview = new WebKit.WebView();
 			_webview.Editable = false;
 		}
-	}
-}
+	}*/
+//}

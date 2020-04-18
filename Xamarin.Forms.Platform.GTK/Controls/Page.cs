@@ -92,10 +92,8 @@ namespace Xamarin.Forms.Platform.GTK.Controls
 
 			_headerContainer = new GtkFormsContainer();
 			root.PackStart(_headerContainer, false, false, 0);
-
 			GtkImage = new ImageControl();
 			GtkImage.Aspect = ImageAspect.Fill;
-
 			_contentContainerWrapper = new GtkFormsContainer();
 			_contentContainerWrapper.SizeAllocated += OnContentContainerWrapperSizeAllocated;
 			_contentContainer = new Fixed();
