@@ -33,9 +33,12 @@ namespace Xamarin.Forms.Platform.GTK.Renderers
 		{
 			if (!Sensitive)
 				return;
-
-			var ration = 96/Gdk.Display.Default.DefaultScreen.Resolution;
-			Gdk.Rectangle s_allocation = new Gdk.Rectangle(0, 0, (int)(allocation.Width / ration), (int)(allocation.Height / ration));
+			double ratio = 72d;
+			var platform = Helpers.PlatformHelper.GetGTKPlatform();
+			if(platform== Helpers.GTKPlatform.Windows)
+			  ratio = 96d;
+			ratio = ratio /Gdk.Display.Default.DefaultScreen.Resolution;
+			Gdk.Rectangle s_allocation = new Gdk.Rectangle(0, 0, (int)(allocation.Width / ratio), (int)(allocation.Height / ratio));
 			base.OnSizeAllocated(s_allocation); 		
 		}
 	}
