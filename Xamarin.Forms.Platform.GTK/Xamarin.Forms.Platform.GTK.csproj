@@ -64,7 +64,6 @@
       <Private>False</Private>
     </Reference>
     <Reference Include="Mono.Cairo, Version=4.0.0.0, Culture=neutral, PublicKeyToken=0738eb9f132ed756, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
       <HintPath>Libs\gtk-sharp\Mono.Cairo\Mono.Cairo.dll</HintPath>
       <Private>False</Private>
     </Reference>
